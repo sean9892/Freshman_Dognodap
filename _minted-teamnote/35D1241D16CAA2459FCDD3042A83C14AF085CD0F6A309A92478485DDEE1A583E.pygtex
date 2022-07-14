@@ -1,0 +1,30 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// vimrc : set nu sc ci si ai sw=4 ts=4 bs=2  mouse=a syntax on}
+
+\PYG{c+c1}{// compile : g++ \PYGZhy{}o PROB PROB.cpp \PYGZhy{}std=c++11 \PYGZhy{}Wall \PYGZhy{}O2}
+\PYG{c+c1}{// options : \PYGZhy{}fsanitize=address \PYGZhy{}Wfatal\PYGZhy{}errors}
+
+\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{StupidGCCCantEvenCompileThisSimpleCode}\PYG{p}{\PYGZob{}}
+\PYG{+w}{	}\PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{array}\PYG{p}{[}\PYG{l+m+mi}{1000000}\PYG{p}{];}
+\PYG{p}{\PYGZcb{};}\PYG{+w}{ }\PYG{c+c1}{// https://gcc.gnu.org/bugzilla/show\PYGZus{}bug.cgi?id=68203}
+
+\PYG{c+c1}{// how to use rand (in 2018)}
+\PYG{n}{mt19937}\PYG{+w}{ }\PYG{n+nf}{rng}\PYG{p}{(}\PYG{l+m+mh}{0x14004}\PYG{p}{);}
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{randint}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{lb}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{ub}\PYG{p}{)\PYGZob{}}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{uniform\PYGZus{}int\PYGZus{}distribution}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{lb}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ub}\PYG{p}{)(}\PYG{n}{rng}\PYG{p}{);}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{// comparator overload}
+\PYG{k}{auto}\PYG{+w}{ }\PYG{n}{cmp}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{[](}\PYG{n}{seg}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{seg}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{)\PYGZob{}}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{.}\PYG{n}{func}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{func}\PYG{p}{();}\PYG{+w}{ }\PYG{p}{\PYGZcb{};}
+\PYG{n}{set}\PYG{o}{\PYGZlt{}}\PYG{n}{seg}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{decltype}\PYG{p}{(}\PYG{n}{cmp}\PYG{p}{)}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{(}\PYG{n}{cmp}\PYG{p}{);}
+\PYG{n}{map}\PYG{o}{\PYGZlt{}}\PYG{n}{seg}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{decltype}\PYG{p}{(}\PYG{n}{cmp}\PYG{p}{)}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{mp}\PYG{p}{(}\PYG{n}{cmp}\PYG{p}{);}
+\PYG{n}{priority\PYGZus{}queue}\PYG{o}{\PYGZlt{}}\PYG{n}{seg}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{seg}\PYG{o}{\PYGZgt{}}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{decltype}\PYG{p}{(}\PYG{n}{cmp}\PYG{p}{)}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{pq}\PYG{p}{(}\PYG{n}{cmp}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{// max heap}
+
+\PYG{c+c1}{// hash func overload}
+\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{point}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{y}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{k}{operator}\PYG{o}{==}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{point}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{p}\PYG{p}{)}\PYG{k}{const}\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{x}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{.}\PYG{n}{x}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{y}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{.}\PYG{n}{y}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{};}
+\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{hasher}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n+nf}{operator}\PYG{p}{()(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{point}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{p}\PYG{p}{)}\PYG{k}{const}\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{.}\PYG{n}{x}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{.}\PYG{n}{y}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{l+m+mi}{3}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{};}
+\PYG{n}{unordered\PYGZus{}map}\PYG{o}{\PYGZlt{}}\PYG{n}{point}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{hasher}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{hsh}\PYG{p}{;}
+\end{Verbatim}

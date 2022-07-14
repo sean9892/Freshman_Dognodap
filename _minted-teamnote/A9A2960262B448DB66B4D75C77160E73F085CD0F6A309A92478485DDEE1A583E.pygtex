@@ -1,0 +1,28 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{fasterLLDivMod}\PYG{p}{(}\PYG{k+kt}{unsigned}\PYG{+w}{ }\PYG{k+kt}{long}\PYG{+w}{ }\PYG{k+kt}{long}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{unsigned}\PYG{+w}{ }\PYG{n}{y}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{unsigned}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{out\PYGZus{}d}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{unsigned}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{out\PYGZus{}m}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{	}\PYG{k+kt}{unsigned}\PYG{+w}{ }\PYG{n}{xh}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{unsigned}\PYG{p}{)(}\PYG{n}{x}\PYG{+w}{ }\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mi}{32}\PYG{p}{),}\PYG{+w}{ }\PYG{n}{xl}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{unsigned}\PYG{p}{)}\PYG{n}{x}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{d}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{m}\PYG{p}{;}
+\PYG{c+cp}{\PYGZsh{}ifdef \PYGZus{}\PYGZus{}GNUC\PYGZus{}\PYGZus{}}
+\PYG{+w}{	}\PYG{k}{asm}\PYG{p}{(}
+\PYG{+w}{		}\PYG{l+s}{\PYGZdq{}divl \PYGZpc{}4; }\PYG{l+s+se}{\PYGZbs{}n\PYGZbs{}t}\PYG{l+s}{\PYGZdq{}}
+\PYG{+w}{		}\PYG{o}{:}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}=a\PYGZdq{}}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{d}\PYG{p}{),}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}=d\PYGZdq{}}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{m}\PYG{p}{)}
+\PYG{+w}{		}\PYG{o}{:}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}d\PYGZdq{}}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{xh}\PYG{p}{),}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}a\PYGZdq{}}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{xl}\PYG{p}{),}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}r\PYGZdq{}}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{y}\PYG{p}{)}
+\PYG{+w}{	}\PYG{p}{);}
+\PYG{c+cp}{\PYGZsh{}else}
+\PYG{+w}{	}\PYG{k+kr}{\PYGZus{}\PYGZus{}asm}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{		}\PYG{n}{mov}\PYG{+w}{ }\PYG{n}{edx}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{dword}\PYG{+w}{ }\PYG{n}{ptr}\PYG{p}{[}\PYG{n}{xh}\PYG{p}{];}
+\PYG{+w}{		}\PYG{n}{mov}\PYG{+w}{ }\PYG{n}{eax}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{dword}\PYG{+w}{ }\PYG{n}{ptr}\PYG{p}{[}\PYG{n}{xl}\PYG{p}{];}
+\PYG{+w}{		}\PYG{n}{div}\PYG{+w}{ }\PYG{n}{dword}\PYG{+w}{ }\PYG{n}{ptr}\PYG{p}{[}\PYG{n}{y}\PYG{p}{];}
+\PYG{+w}{		}\PYG{n}{mov}\PYG{+w}{ }\PYG{n}{dword}\PYG{+w}{ }\PYG{n}{ptr}\PYG{p}{[}\PYG{n}{d}\PYG{p}{],}\PYG{+w}{ }\PYG{n}{eax}\PYG{p}{;}
+\PYG{+w}{		}\PYG{n}{mov}\PYG{+w}{ }\PYG{n}{dword}\PYG{+w}{ }\PYG{n}{ptr}\PYG{p}{[}\PYG{n}{m}\PYG{p}{],}\PYG{+w}{ }\PYG{n}{edx}\PYG{p}{;}
+\PYG{+w}{	}\PYG{p}{\PYGZcb{};}
+\PYG{c+cp}{\PYGZsh{}endif}
+\PYG{+w}{	}\PYG{n}{out\PYGZus{}d}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{d}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{out\PYGZus{}m}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{m}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\PYG{c+c1}{//x \PYGZlt{} 2\PYGZca{}32 * MOD !}
+\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k+kt}{unsigned}\PYG{+w}{ }\PYG{n+nf}{Mod}\PYG{p}{(}\PYG{k+kt}{unsigned}\PYG{+w}{ }\PYG{k+kt}{long}\PYG{+w}{ }\PYG{k+kt}{long}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{	}\PYG{k+kt}{unsigned}\PYG{+w}{ }\PYG{n}{y}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{mod}\PYG{p}{;}
+\PYG{+w}{	}\PYG{k+kt}{unsigned}\PYG{+w}{ }\PYG{n}{dummy}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{r}\PYG{p}{;}
+\PYG{+w}{	}\PYG{n}{fasterLLDivMod}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{y}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{dummy}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{r}\PYG{p}{);}
+\PYG{+w}{	}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{r}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

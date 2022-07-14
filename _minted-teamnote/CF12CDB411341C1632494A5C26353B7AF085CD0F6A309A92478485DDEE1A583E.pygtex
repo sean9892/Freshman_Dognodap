@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// 64bit ver.}
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{main2}\PYG{p}{()\PYGZob{}}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{main}\PYG{p}{()\PYGZob{}}
+\PYG{+w}{	}\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{  }\PYG{n}{sz}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+m+mi}{29}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// 512MB}
+\PYG{+w}{	}\PYG{k+kt}{void}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{newstack}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{malloc}\PYG{p}{(}\PYG{n}{sz}\PYG{p}{);}
+\PYG{+w}{	}\PYG{k+kt}{void}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{sp\PYGZus{}dest}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{newstack}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{sz}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{void}\PYG{o}{*}\PYG{p}{);}
+\PYG{+w}{	}\PYG{k}{asm}\PYG{+w}{  }\PYG{n}{\PYGZus{}\PYGZus{}volatile\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}movq \PYGZpc{}0, \PYGZpc{}\PYGZpc{}rax}\PYG{l+s+se}{\PYGZbs{}n\PYGZbs{}t}\PYG{l+s}{\PYGZdq{}}
+\PYG{+w}{	}\PYG{l+s}{\PYGZdq{}movq \PYGZpc{}\PYGZpc{}rsp , (\PYGZpc{}\PYGZpc{}rax)}\PYG{l+s+se}{\PYGZbs{}n\PYGZbs{}t}\PYG{l+s}{\PYGZdq{}}
+\PYG{+w}{	}\PYG{l+s}{\PYGZdq{}movq \PYGZpc{}0, \PYGZpc{}\PYGZpc{}rsp}\PYG{l+s+se}{\PYGZbs{}n\PYGZbs{}t}\PYG{l+s}{\PYGZdq{}}\PYG{o}{:}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}r\PYGZdq{}}\PYG{p}{(}\PYG{n}{sp\PYGZus{}dest}\PYG{p}{)}\PYG{o}{:}\PYG{+w}{ }\PYG{p}{);}
+\PYG{+w}{	}\PYG{n}{main2}\PYG{p}{();}
+\PYG{+w}{	}\PYG{k}{asm}\PYG{+w}{  }\PYG{n}{\PYGZus{}\PYGZus{}volatile\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}pop \PYGZpc{}rsp}\PYG{l+s+se}{\PYGZbs{}n\PYGZbs{}t}\PYG{l+s}{\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{	}\PYG{k}{return}\PYG{+w}{  }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{color}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{	}\PYG{k}{if}\PYG{p}{(}\PYG{n}{p}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{		}\PYG{n}{bcc}\PYG{p}{[}\PYG{n}{p}\PYG{p}{].}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{x}\PYG{p}{);}
+\PYG{+w}{		}\PYG{n}{cmp}\PYG{p}{[}\PYG{n}{x}\PYG{p}{].}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{p}\PYG{p}{);}
+\PYG{+w}{	}\PYG{p}{\PYGZcb{}}
+\PYG{+w}{	}\PYG{k}{for}\PYG{p}{(}\PYG{k}{auto}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{i}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{gph}\PYG{p}{[}\PYG{n}{x}\PYG{p}{])\PYGZob{}}
+\PYG{+w}{		}\PYG{k}{if}\PYG{p}{(}\PYG{n}{cmp}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{size}\PYG{p}{())}\PYG{+w}{ }\PYG{k}{continue}\PYG{p}{;}
+\PYG{+w}{		}\PYG{k}{if}\PYG{p}{(}\PYG{n}{low}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZgt{}=}\PYG{+w}{ }\PYG{n}{dfn}\PYG{p}{[}\PYG{n}{x}\PYG{p}{])\PYGZob{}}
+\PYG{+w}{			}\PYG{n}{bcc}\PYG{p}{[}\PYG{o}{++}\PYG{n}{c}\PYG{p}{].}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{x}\PYG{p}{);}
+\PYG{+w}{			}\PYG{n}{cmp}\PYG{p}{[}\PYG{n}{x}\PYG{p}{].}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{c}\PYG{p}{);}
+\PYG{+w}{			}\PYG{n}{color}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{);}
+\PYG{+w}{		}\PYG{p}{\PYGZcb{}}
+\PYG{+w}{		}\PYG{k}{else}\PYG{+w}{ }\PYG{n}{color}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{);}
+\PYG{+w}{	}\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

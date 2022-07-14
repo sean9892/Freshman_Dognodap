@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{\PYGZus{}\PYGZus{}builtin\PYGZus{}clz}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{);}\PYG{c+c1}{// number of leading zero}
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{\PYGZus{}\PYGZus{}builtin\PYGZus{}ctz}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{);}\PYG{c+c1}{// number of trailing zero}
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{\PYGZus{}\PYGZus{}builtin\PYGZus{}clzll}\PYG{p}{(}\PYG{k+kt}{long}\PYG{+w}{ }\PYG{k+kt}{long}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{);}\PYG{c+c1}{// number of leading zero}
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{\PYGZus{}\PYGZus{}builtin\PYGZus{}ctzll}\PYG{p}{(}\PYG{k+kt}{long}\PYG{+w}{ }\PYG{k+kt}{long}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{);}\PYG{c+c1}{// number of trailing zero}
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{\PYGZus{}\PYGZus{}builtin\PYGZus{}popcount}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{);}\PYG{c+c1}{// number of 1\PYGZhy{}bits in x}
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{\PYGZus{}\PYGZus{}builtin\PYGZus{}popcountll}\PYG{p}{(}\PYG{k+kt}{long}\PYG{+w}{ }\PYG{k+kt}{long}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{);}\PYG{c+c1}{// number of 1\PYGZhy{}bits in x}
+
+\PYG{n}{lsb}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)}\PYG{o}{:}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{n}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{n}{n}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{// last bit (smallest)}
+\PYG{n}{floor}\PYG{p}{(}\PYG{n}{log2}\PYG{p}{(}\PYG{n}{n}\PYG{p}{))}\PYG{o}{:}\PYG{+w}{ }\PYG{l+m+mi}{31}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{\PYGZus{}\PYGZus{}builtin\PYGZus{}clz}\PYG{p}{(}\PYG{n}{n}\PYG{+w}{ }\PYG{o}{|}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{n}{floor}\PYG{p}{(}\PYG{n}{log2}\PYG{p}{(}\PYG{n}{n}\PYG{p}{))}\PYG{o}{:}\PYG{+w}{ }\PYG{l+m+mi}{63}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{\PYGZus{}\PYGZus{}builtin\PYGZus{}clzll}\PYG{p}{(}\PYG{n}{n}\PYG{+w}{ }\PYG{o}{|}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{);}
+
+\PYG{c+c1}{// compute next perm. ex) 00111, 01011, 01101, 01110, 10011, 10101..}
+\PYG{k+kt}{long}\PYG{+w}{ }\PYG{k+kt}{long}\PYG{+w}{ }\PYG{n+nf}{next\PYGZus{}perm}\PYG{p}{(}\PYG{k+kt}{long}\PYG{+w}{ }\PYG{k+kt}{long}\PYG{+w}{ }\PYG{n}{v}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{	}\PYG{k+kt}{long}\PYG{+w}{ }\PYG{k+kt}{long}\PYG{+w}{ }\PYG{n}{t}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{v}\PYG{+w}{ }\PYG{o}{|}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{v}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{);}
+\PYG{+w}{	}\PYG{k}{return}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{t}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{|}\PYG{+w}{ }\PYG{p}{(((}\PYG{o}{\PYGZti{}}\PYG{n}{t}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{o}{\PYGZhy{}\PYGZti{}}\PYG{n}{t}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{\PYGZus{}\PYGZus{}builtin\PYGZus{}ctz}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{));}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

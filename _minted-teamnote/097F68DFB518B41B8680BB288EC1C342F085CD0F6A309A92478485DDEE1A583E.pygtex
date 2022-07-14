@@ -1,0 +1,61 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{pi}\PYG{p}{;}
+\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{node}\PYG{p}{\PYGZob{}}
+\PYG{+w}{	}\PYG{n}{pi}\PYG{+w}{ }\PYG{n}{pnt}\PYG{p}{;}
+\PYG{+w}{	}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{spl}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{sx}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ex}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{sy}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ey}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}\PYG{n}{tree}\PYG{p}{[}\PYG{l+m+mi}{270000}\PYG{p}{];}
+
+\PYG{n}{pi}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{100005}\PYG{p}{];}
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ok}\PYG{p}{[}\PYG{l+m+mi}{270000}\PYG{p}{];}
+
+\PYG{n}{lint}\PYG{+w}{ }\PYG{n+nf}{sqr}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{)\PYGZob{}}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mf}{1l}\PYG{n}{l}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{x}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n+nf}{cmp1}\PYG{p}{(}\PYG{n}{pi}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{pi}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{)\PYGZob{}}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{a}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n+nf}{cmp2}\PYG{p}{(}\PYG{n}{pi}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{pi}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{)\PYGZob{}}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{pi}\PYG{p}{(}\PYG{n}{a}\PYG{p}{.}\PYG{n}{second}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{.}\PYG{n}{first}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{pi}\PYG{p}{(}\PYG{n}{b}\PYG{p}{.}\PYG{n}{second}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{first}\PYG{p}{);}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{// init(0, n\PYGZhy{}1, 1) : Initialize kd\PYGZhy{}tree}
+\PYG{c+c1}{// set dap = INF, and call solve(1, P). dap = (closest point from P)}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{init}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{e}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{)\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// Initialize kd\PYGZhy{}tree}
+\PYG{+w}{	}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{minx}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mf}{1e9}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{maxx}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mf}{\PYGZhy{}1e9}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{miny}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mf}{1e9}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{maxy}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mf}{\PYGZhy{}1e9}\PYG{p}{;}
+\PYG{+w}{	}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{m}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{s}\PYG{o}{+}\PYG{n}{e}\PYG{p}{)}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{;}
+\PYG{+w}{	}\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{=}\PYG{n}{s}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{e}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{		}\PYG{n}{minx}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{min}\PYG{p}{(}\PYG{n}{minx}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{first}\PYG{p}{);}
+\PYG{+w}{		}\PYG{n}{miny}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{min}\PYG{p}{(}\PYG{n}{miny}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{second}\PYG{p}{);}
+\PYG{+w}{		}\PYG{n}{maxx}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{max}\PYG{p}{(}\PYG{n}{maxx}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{first}\PYG{p}{);}
+\PYG{+w}{		}\PYG{n}{maxy}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{max}\PYG{p}{(}\PYG{n}{maxy}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{second}\PYG{p}{);}
+\PYG{+w}{	}\PYG{p}{\PYGZcb{}}
+\PYG{+w}{	}\PYG{n}{tree}\PYG{p}{[}\PYG{n}{p}\PYG{p}{].}\PYG{n}{spl}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{maxx}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{minx}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{maxy}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{miny}\PYG{p}{);}
+\PYG{+w}{	}\PYG{n}{sort}\PYG{p}{(}\PYG{n}{a}\PYG{o}{+}\PYG{n}{s}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{a}\PYG{o}{+}\PYG{n}{e}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{[}\PYG{o}{\PYGZam{}}\PYG{p}{](}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{pi}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{pi}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{b}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{		}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{tree}\PYG{p}{[}\PYG{n}{p}\PYG{p}{].}\PYG{n}{spl}\PYG{+w}{ }\PYG{o}{?}\PYG{+w}{ }\PYG{n}{cmp2}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{cmp1}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{);}
+\PYG{+w}{	}\PYG{p}{\PYGZcb{});}
+\PYG{+w}{	}\PYG{n}{ok}\PYG{p}{[}\PYG{n}{p}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{;}
+\PYG{+w}{	}\PYG{n}{tree}\PYG{p}{[}\PYG{n}{p}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{n}{a}\PYG{p}{[}\PYG{n}{m}\PYG{p}{],}\PYG{+w}{ }\PYG{n}{tree}\PYG{p}{[}\PYG{n}{p}\PYG{p}{].}\PYG{n}{spl}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{minx}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{maxx}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{miny}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{maxy}\PYG{p}{\PYGZcb{};}
+\PYG{+w}{	}\PYG{k}{if}\PYG{p}{(}\PYG{n}{s}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{m}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{init}\PYG{p}{(}\PYG{n}{s}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{m}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{p}\PYG{p}{);}
+\PYG{+w}{	}\PYG{k}{if}\PYG{p}{(}\PYG{n}{m}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{e}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{init}\PYG{p}{(}\PYG{n}{m}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{e}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{p}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{lint}\PYG{+w}{ }\PYG{n}{dap}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mf}{3e18}\PYG{p}{;}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{solve}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{pi}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{)\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// find closest point from point x (L\PYGZca{}2)}
+\PYG{+w}{	}\PYG{k}{if}\PYG{p}{(}\PYG{n}{x}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{tree}\PYG{p}{[}\PYG{n}{p}\PYG{p}{].}\PYG{n}{pnt}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{dap}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{min}\PYG{p}{(}\PYG{n}{dap}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{sqr}\PYG{p}{(}\PYG{n}{x}\PYG{p}{.}\PYG{n}{first}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{tree}\PYG{p}{[}\PYG{n}{p}\PYG{p}{].}\PYG{n}{pnt}\PYG{p}{.}\PYG{n}{first}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{sqr}\PYG{p}{(}\PYG{n}{x}\PYG{p}{.}\PYG{n}{second}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{tree}\PYG{p}{[}\PYG{n}{p}\PYG{p}{].}\PYG{n}{pnt}\PYG{p}{.}\PYG{n}{second}\PYG{p}{));}
+\PYG{+w}{	}\PYG{k}{if}\PYG{p}{(}\PYG{n}{tree}\PYG{p}{[}\PYG{n}{p}\PYG{p}{].}\PYG{n}{spl}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{		}\PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{cmp2}\PYG{p}{(}\PYG{n}{tree}\PYG{p}{[}\PYG{n}{p}\PYG{p}{].}\PYG{n}{pnt}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{))\PYGZob{}}
+\PYG{+w}{			}\PYG{k}{if}\PYG{p}{(}\PYG{n}{ok}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{p}\PYG{p}{])}\PYG{+w}{ }\PYG{n}{solve}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{p}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{);}
+\PYG{+w}{			}\PYG{k}{if}\PYG{p}{(}\PYG{n}{ok}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{p}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{sqr}\PYG{p}{(}\PYG{n}{tree}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{p}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{].}\PYG{n}{sy}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{.}\PYG{n}{second}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{dap}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{solve}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{p}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{);}
+\PYG{+w}{		}\PYG{p}{\PYGZcb{}}
+\PYG{+w}{		}\PYG{k}{else}\PYG{p}{\PYGZob{}}
+\PYG{+w}{			}\PYG{k}{if}\PYG{p}{(}\PYG{n}{ok}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{p}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{])}\PYG{+w}{ }\PYG{n}{solve}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{p}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{);}
+\PYG{+w}{			}\PYG{k}{if}\PYG{p}{(}\PYG{n}{ok}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{p}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{sqr}\PYG{p}{(}\PYG{n}{tree}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{p}\PYG{p}{].}\PYG{n}{ey}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{.}\PYG{n}{second}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{dap}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{solve}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{p}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{);}
+\PYG{+w}{		}\PYG{p}{\PYGZcb{}}
+\PYG{+w}{	}\PYG{p}{\PYGZcb{}}
+\PYG{+w}{	}\PYG{k}{else}\PYG{p}{\PYGZob{}}
+\PYG{+w}{		}\PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{cmp1}\PYG{p}{(}\PYG{n}{tree}\PYG{p}{[}\PYG{n}{p}\PYG{p}{].}\PYG{n}{pnt}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{))\PYGZob{}}
+\PYG{+w}{			}\PYG{k}{if}\PYG{p}{(}\PYG{n}{ok}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{p}\PYG{p}{])}\PYG{+w}{ }\PYG{n}{solve}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{p}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{);}
+\PYG{+w}{			}\PYG{k}{if}\PYG{p}{(}\PYG{n}{ok}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{p}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{sqr}\PYG{p}{(}\PYG{n}{tree}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{p}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{].}\PYG{n}{sx}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{.}\PYG{n}{first}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{dap}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{solve}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{p}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{);}
+\PYG{+w}{		}\PYG{p}{\PYGZcb{}}
+\PYG{+w}{		}\PYG{k}{else}\PYG{p}{\PYGZob{}}
+\PYG{+w}{			}\PYG{k}{if}\PYG{p}{(}\PYG{n}{ok}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{p}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{])}\PYG{+w}{ }\PYG{n}{solve}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{p}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{);}
+\PYG{+w}{			}\PYG{k}{if}\PYG{p}{(}\PYG{n}{ok}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{p}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{sqr}\PYG{p}{(}\PYG{n}{tree}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{p}\PYG{p}{].}\PYG{n}{ex}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{.}\PYG{n}{first}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{dap}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{solve}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{p}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{);}
+\PYG{+w}{		}\PYG{p}{\PYGZcb{}}
+\PYG{+w}{	}\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

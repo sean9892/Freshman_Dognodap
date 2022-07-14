@@ -1,0 +1,22 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}ext/pb\PYGZus{}ds/assoc\PYGZus{}container.hpp\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}ext/pb\PYGZus{}ds/tree\PYGZus{}policy.hpp\PYGZgt{}}
+\PYG{k}{using}\PYG{+w}{ }\PYG{k}{namespace}\PYG{+w}{ }\PYG{n+nn}{\PYGZus{}\PYGZus{}gnu\PYGZus{}pbds}\PYG{p}{;}
+
+\PYG{k}{typedef}
+\PYG{n}{tree}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{null\PYGZus{}type}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{less}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{rb\PYGZus{}tree\PYGZus{}tag}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{tree\PYGZus{}order\PYGZus{}statistics\PYGZus{}node\PYGZus{}update}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{ordered\PYGZus{}set}\PYG{p}{;}
+
+\PYG{n}{ordered\PYGZus{}set}\PYG{+w}{ }\PYG{n}{X}\PYG{p}{;}
+\PYG{n}{X}\PYG{p}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{);}\PYG{+w}{ }\PYG{n}{X}\PYG{p}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{);}\PYG{+w}{ }\PYG{n}{X}\PYG{p}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{);}\PYG{+w}{ }\PYG{n}{X}\PYG{p}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{l+m+mi}{8}\PYG{p}{);}\PYG{+w}{ }\PYG{n}{X}\PYG{p}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{l+m+mi}{16}\PYG{p}{);}
+
+\PYG{n}{cout}\PYG{o}{\PYGZlt{}\PYGZlt{}*}\PYG{n}{X}\PYG{p}{.}\PYG{n}{find\PYGZus{}by\PYGZus{}order}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{endl}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// 2}
+\PYG{n}{cout}\PYG{o}{\PYGZlt{}\PYGZlt{}*}\PYG{n}{X}\PYG{p}{.}\PYG{n}{find\PYGZus{}by\PYGZus{}order}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{endl}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// 4}
+\PYG{n}{cout}\PYG{o}{\PYGZlt{}\PYGZlt{}*}\PYG{n}{X}\PYG{p}{.}\PYG{n}{find\PYGZus{}by\PYGZus{}order}\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{)}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{endl}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// 16}
+\PYG{n}{cout}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{p}{(}\PYG{n}{end}\PYG{p}{(}\PYG{n}{X}\PYG{p}{)}\PYG{o}{==}\PYG{n}{X}\PYG{p}{.}\PYG{n}{find\PYGZus{}by\PYGZus{}order}\PYG{p}{(}\PYG{l+m+mi}{6}\PYG{p}{))}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{endl}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// true}
+
+\PYG{n}{cout}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{X}\PYG{p}{.}\PYG{n}{order\PYGZus{}of\PYGZus{}key}\PYG{p}{(}\PYG{l+m+mi}{\PYGZhy{}5}\PYG{p}{)}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{endl}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// 0}
+\PYG{n}{cout}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{X}\PYG{p}{.}\PYG{n}{order\PYGZus{}of\PYGZus{}key}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{endl}\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{// 0}
+\PYG{n}{cout}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{X}\PYG{p}{.}\PYG{n}{order\PYGZus{}of\PYGZus{}key}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{)}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{endl}\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{// 2}
+\PYG{n}{cout}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{X}\PYG{p}{.}\PYG{n}{order\PYGZus{}of\PYGZus{}key}\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{)}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{endl}\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{// 2}
+\PYG{n}{cout}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{X}\PYG{p}{.}\PYG{n}{order\PYGZus{}of\PYGZus{}key}\PYG{p}{(}\PYG{l+m+mi}{400}\PYG{p}{)}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{endl}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// 5}
+\end{Verbatim}

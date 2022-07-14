@@ -1,0 +1,19 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{maxflow}\PYG{+w}{ }\PYG{n}{mf}\PYG{p}{;}
+\PYG{n}{lint}\PYG{+w}{ }\PYG{n}{lsum}\PYG{p}{;}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{clear}\PYG{p}{()\PYGZob{}}
+\PYG{+w}{	}\PYG{n}{lsum}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{	}\PYG{n}{mf}\PYG{p}{.}\PYG{n}{clear}\PYG{p}{();}
+\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{add\PYGZus{}edge}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{e}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{l}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{r}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{	}\PYG{n}{lsum}\PYG{+w}{ }\PYG{o}{+=}\PYG{+w}{ }\PYG{n}{l}\PYG{p}{;}
+\PYG{+w}{	}\PYG{n}{mf}\PYG{p}{.}\PYG{n}{add\PYGZus{}edge}\PYG{p}{(}\PYG{n}{s}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{e}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{r}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{l}\PYG{p}{);}
+\PYG{+w}{	}\PYG{n}{mf}\PYG{p}{.}\PYG{n}{add\PYGZus{}edge}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{e}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{l}\PYG{p}{);}
+\PYG{+w}{	}\PYG{n}{mf}\PYG{p}{.}\PYG{n}{add\PYGZus{}edge}\PYG{p}{(}\PYG{n}{s}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{l}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n+nf}{solve}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{e}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{	}\PYG{n}{mf}\PYG{p}{.}\PYG{n}{add\PYGZus{}edge}\PYG{p}{(}\PYG{n}{e}\PYG{o}{+}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{s}\PYG{o}{+}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mf}{1e9}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{// to reduce as maxflow with lower bounds, in circulation problem skip this line}
+\PYG{+w}{	}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{lsum}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{mf}\PYG{p}{.}\PYG{n}{match}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{+w}{	}\PYG{c+c1}{// to get maximum LR flow, run maxflow from s+2 to e+2 again}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
