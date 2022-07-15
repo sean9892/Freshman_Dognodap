@@ -12,7 +12,7 @@
 \setlength{\columnseprule}{0.4pt}
 \pagenumbering{arabic}
 
-\usepackage{kotex}
+\usepackage{kotex} 
 
 \usepackage[left=0.8cm, right=0.8cm, top=2cm, bottom=0.3cm, a4paper]{geometry}
 \usepackage{amsmath}
@@ -26,7 +26,7 @@
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \pagestyle{fancy}
-\lhead{KAIST - Deobureo Minkyu Party.}
+\lhead{KAIST,HYU - Freshman Dognodap}
 \rhead{Page \thepage  \ of \pageref{LastPage} }
 \fancyfoot{}
 
@@ -37,8 +37,8 @@
 
 \setlength\partopsep{-\topsep -\parskip}
 
-\title{Team Note of Deobureo Minkyu Party}
-\author{tncks0121, koosaga, alex9801, hyea (alumni)}
+\title{Team Note of Freshman Dognodap}
+\author{sean9892, jjaewon9, pentagon03}
 \date{Compiled on \today}
 
 \newcommand{\revised}{Should be \textcolor{red}{\textbf{revised}}.}
@@ -58,6 +58,63 @@
 \pagebreak
 
 \textcolor{red}{\textbf{ALL BELOW HERE ARE USELESS IF YOU READ THE STATEMENT WRONG}}
+
+\section{Data Structure}
+\subsection{Erasable Priority Queue}
+\begin{minted}{cpp}
+template<typename T, T inf>
+struct pq_set{
+  priority_queue<T, vector<T>, greater<T>> in, out; // min heap, inf = 1e18
+  // priority_queue<T> in, out; // max heap, inf = -1e18
+  pq_set(){ in.push(inf); }
+  void insert(T v){ in.push(v); }
+  void erase(T v){ out.push(v); }
+  T top(){
+  while(out.size() && in.top() == out.top()) in.pop(), out.pop();
+  	return in.top();
+  }
+  bool empty(){
+  while(out.size() && in.top() == out.top()) in.pop(), out.pop();
+  	return in.top() == inf;
+  }
+};
+\end{minted}
+\subsection{Persistent Segment Tree}
+\begin{minted}{cpp}
+struct PSTNode{
+  PSTNode *l, *r; int v;
+  PSTNode(){ l = r = nullptr; v = 0; }
+};
+PSTNode *root[101010];
+PST(){ memset(root, 0, sizeof root); } // constructor
+void init(PSTNode *node, int s, int e){
+  if(s == e) return;
+  int m = s + e >> 1;
+  node->l = new PSTNode; node->r = new PSTNode;
+  init(node->l, s, m); init(node->r, m+1, e);
+}
+void update(PSTNode *prv, PSTNode *now, int s, int e, int x){
+  if(s == e){ now->v = prv ? prv->v + 1 : 1; return; }
+  int m = s + e >> 1;
+  if(x <= m){
+    now->l = new PSTNode; now->r = prv->r;
+    update(prv->l, now->l, s, m, x);
+  }
+  else{
+    now->r = new PSTNode; now->l = prv->l;
+    update(prv->r, now->r, m+1, e, x);
+  }
+  int t1 = now->l ? now->l->v : 0;
+  int t2 = now->r ? now->r->v : 0;
+  now->v = t1 + t2;
+}
+int kth(PSTNode *prv, PSTNode *now, int s, int e, int k){
+  if(s == e) return s;
+  int m = s + e >> 1, diff = now->l->v - prv->l->v;
+  if(k <= diff) return kth(prv->l, now->l, s, m, k);
+  else return kth(prv->r, now->r, m+1, e, k-diff);
+}
+\end{minted}
 
 \section{Flows, Matching}
 \subsection {Hopcroft-Karp Bipartite Matching}
@@ -999,7 +1056,203 @@ int solve(string a, string b){
 	return ret;
 }
 \end{minted}
+
 \section{Geometry}
+\subsection{Buldozer}
+\begin{minted}{cpp}
+Point v[2020];
+struct Line{
+  ll i, j, dx, dy;
+  Line(int i, int j) : i(i), j(j) {
+    dx = v[i].x - v[j].x; dy = v[i].y - v[j].y;
+  }
+  bool operator < (const Line &t) const {
+    ll a = dy * t.dx, b = t.dy * dx;
+    return tie(a, i, j) < tie(b, t.i, t.j);
+  }
+};
+int ccw(Point a, Point b, Point c){}
+int ccw(Line a, Line b){
+  ll res = a.dx*b.dy - b.dx*a.dy;
+  if(!res) return 0; return res > 0 ? 1 : -1;
+}
+int idx[2020]; vector<Line> line;
+void bulldozer(int n){
+  sort(v+1, v+n+1); for(int i=1; i<=n; i++) idx[i] = i;
+  for(int i=1; i<=n; i++) for(int j=1; j<i; j++) line.emplace_back(i, j);
+  for(int i=0, j=0; i<line.size(); ){
+    int ed = i;
+    while(ed < line.size() && !ccw(line[i], line[ed])) ed++;
+    for(int j=i; j<ed; j++){
+      int a = line[j].i, b = line[j].j;
+      swap(idx[a], idx[b]); swap(v[idx[a]], v[idx[b]]);
+      update(idx[a]); update(idx[b]);
+    }
+    ans = merge(ans, query()); i = ed;
+  }
+}
+\end{minted}
+\subsection{Rotating Calipers}
+\begin{minted}{cpp}
+Point v[2020];
+struct Line{
+  ll i, j, dx, dy;
+  Line(int i, int j) : i(i), j(j) {
+    dx = v[i].x - v[j].x; dy = v[i].y - v[j].y;
+  }
+  bool operator < (const Line &t) const {
+    ll a = dy * t.dx, b = t.dy * dx;
+    return tie(a, i, j) < tie(b, t.i, t.j);
+  }
+};
+int ccw(Point a, Point b, Point c){}
+int ccw(Line a, Line b){
+  ll res = a.dx*b.dy - b.dx*a.dy;
+  if(!res) return 0; return res > 0 ? 1 : -1;
+}
+int idx[2020]; vector<Line> line;
+void bulldozer(int n){
+  sort(v+1, v+n+1); for(int i=1; i<=n; i++) idx[i] = i;
+  for(int i=1; i<=n; i++) for(int j=1; j<i; j++) line.emplace_back(i, j);
+  for(int i=0, j=0; i<line.size(); ){
+    int ed = i;
+    while(ed < line.size() && !ccw(line[i], line[ed])) ed++;
+    for(int j=i; j<ed; j++){
+      int a = line[j].i, b = line[j].j;
+      swap(idx[a], idx[b]); swap(v[idx[a]], v[idx[b]]);
+      update(idx[a]); update(idx[b]);
+    }
+    ans = merge(ans, query()); i = ed;
+  }
+}
+\end{minted}
+\subsection{Delaunay}
+\begin{minted}{cpp}
+using lll = __int128; // using T = ll; (if coords are < 2e4)
+// return true if p strictly within circumcircle(a,b,c)
+bool inCircle(P p, P a, P b, P c) { 
+	a -= p, b -= p, c -= p; // assert(cross(a,b,c)>0);
+	lll x = (lll)norm(a)*cross(b,c)+(lll)norm(b)*cross(c,a)
+			+(lll)norm(c)*cross(a,b);
+	return x*(cross(a,b,c)>0?1:-1) > 0;
+}
+P arb(LLONG_MAX,LLONG_MAX); // not equal to any other point
+using Q = struct Quad*;
+struct Quad {
+	bool mark; Q o, rot; P p;
+	P F() { return r()->p; }
+	Q r() { return rot->rot; }
+	Q prev() { return rot->o->rot; }
+	Q next() { return r()->prev(); }
+};
+Q makeEdge(P orig, P dest) {
+	Q q[]{new Quad{0,0,0,orig}, new Quad{0,0,0,arb},
+		  new Quad{0,0,0,dest}, new Quad{0,0,0,arb}};
+	F0R(i,4) q[i]->o = q[-i & 3], q[i]->rot = q[(i+1) & 3];
+	return *q;
+}
+void splice(Q a, Q b) { swap(a->o->rot->o, b->o->rot->o); swap(a->o, b->o); }
+Q connect(Q a, Q b) {
+	Q q = makeEdge(a->F(), b->p);
+	splice(q, a->next()); splice(q->r(), b);
+	return q;
+}
+pair<Q,Q> rec(const vP& s) {
+	if (sz(s) <= 3) {
+		Q a = makeEdge(s[0], s[1]), b = makeEdge(s[1], s.bk);
+		if (sz(s) == 2) return { a, a->r() };
+		splice(a->r(), b);
+		auto side = cross(s[0], s[1], s[2]);
+		Q c = side ? connect(b, a) : 0;
+		return {side < 0 ? c->r() : a, side < 0 ? c : b->r() };
+	}
+
+#define H(e) e->F(), e->p
+#define valid(e) (cross(e->F(),H(base)) > 0)
+	Q A, B, ra, rb;
+	int half = sz(s) / 2;
+	tie(ra, A) = rec({all(s)-half});
+	tie(B, rb) = rec({sz(s)-half+all(s)});
+	while ((cross(B->p,H(A)) < 0 && (A = A->next())) ||
+		   (cross(A->p,H(B)) > 0 && (B = B->r()->o)));
+	Q base = connect(B->r(), A);
+	if (A->p == ra->p) ra = base->r();
+	if (B->p == rb->p) rb = base;
+
+#define DEL(e, init, dir) Q e = init->dir; if (valid(e)) \
+		while (inCircle(e->dir->F(), H(base), e->F())) { \
+			Q t = e->dir; \
+			splice(e, e->prev()); \
+			splice(e->r(), e->r()->prev()); \
+			e = t; \
+		}
+	while (1) {
+		DEL(LC, base->r(), o);	DEL(RC, base, prev());
+		if (!valid(LC) && !valid(RC)) break;
+		if (!valid(LC) || (valid(RC) && inCircle(H(RC), H(LC))))
+			base = connect(RC, base->r());
+		else base = connect(base->r(), LC->r());
+	}
+	return {ra, rb};
+}
+V<AR<P,3>> triangulate(vP pts) {
+	sor(pts); assert(unique(all(pts)) == end(pts)); // no duplicates
+	if (sz(pts) < 2) return {};
+	Q e = rec(pts).f; V<Q> q = {e};
+	while (cross(e->o->F(), e->F(), e->p) < 0) e = e->o;
+#define ADD { Q c = e; do { c->mark = 1; pts.pb(c->p); \
+	q.pb(c->r()); c = c->next(); } while (c != e); }
+	ADD; pts.clear();
+	int qi = 0; while (qi < sz(q)) if (!(e = q[qi++])->mark) ADD;
+	V<AR<P,3>> ret(sz(pts)/3); 
+	F0R(i,sz(pts)) ret[i/3][i%3] = pts[i];
+	return ret;
+}
+\end{minted}
+\subsection{Dual Graph}
+\begin{minted}{cpp}
+const int MV = 101010, ME = 101010; // MAX_V, MAX_E
+p pt[MV]; // vertex's coord
+vector<p> g[MV]; // g[s].emplace_back(e, edge_id);
+vector<int> dual_pt; // coord compress
+int par[ME * 2]; // Union Find
+void uf_init(){ iota(par, par+ME*2, 0); }
+int find(int v){return v == par[v] ? v : par[v] = find(par[v]);}
+void merge(int u, int v){ u = find(u); v = find(v); if(u != v)par[u] = v; }
+p base; // sort by angle
+bool cmp_angle(const p &_a, const p &_b){
+  p a = pt[_a.x], b = pt[_b.x];
+  if((a > base) != (b > base)) return a > b;
+  return ccw(a, base, b) > 0;
+}
+void addEdge(int s, int e, int id){
+  g[s].emplace_back(e, id); g[e].emplace_back(s, id);
+}
+int out; //outer face
+void getDual(int n, int m){
+  uf_init();
+  for(int i=1; i<=n; i++){
+    base = pt[i]; sort(all(g[i]), cmp_angle);
+    // up, left : *2+1 / down, right : *2
+    for(int j=0; j<g[i].size(); j++){
+      int k = j ? j - 1 : g[i].size()-1;
+      int u = g[i][k].y << 1 | 1, v = g[i][j].y << 1;
+      p p1 = pt[g[i][k].x], p2 = pt[g[i][j].x];
+      if(p1 > base) u ^= 1;
+      if(p2 > base) v ^= 1;
+      merge(u, v);
+    }
+  }
+  int mn_idx = min_element(pt+1, pt+n+1) - pt;
+  out = find(g[mn_idx][0].y << 1 | 1);
+  for(int i=1; i<=m; i++){
+    dual_pt.push_back(find(i << 1));
+    dual_pt.push_back(find(i << 1 | 1));
+  }
+  compress(dual_pt);
+  // @TODO coord compress
+}
+\end{minted}
 \subsection{Smallest Enclosing Circle / Sphere}
 \begin{minted}{cpp}
 namespace cover_2d{
@@ -1753,21 +2006,6 @@ int solve() {
 	}
 	for(int i = 1; i <= m; i++) if(Left[i] <= n) sol[Left[i]] = b[i];
 	return 0;
-}
-\end{minted}
-\subsection{Pentagonal Number Theorem for Partition Number Counting}
-\begin{minted}{cpp}
-vector<pair<int, int>> gp;
-lint P[MAXN+1] = {};
-gp.emplace_back(0, 0);
-for(int i = 1; gp.back().second <= MAXN; i++) {
-	gp.emplace_back(i % 2 ? 1 : -1, i * (3*i - 1) / 2);
-	gp.emplace_back(i % 2 ? 1 : -1, i * (3*i + 1) / 2);
-}
-P[1] = 1;
-for(int n = 2; n <= MAXN; n++) {
-	for(auto it : gp) if(n >= it.second) P[n] += P[n - it.second] * it.first + MOD;
-	P[n] %= MOD;
 }
 \end{minted}
 \subsection{De Bruijn Sequence}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.14)  14 JUL 2022 19:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.14)  14 JUL 2022 19:26
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -576,99 +576,121 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ]
 \openout3 = `teamnote.pyg'.
 
- (./_minted-teamnote/perldoc.pygstyle) (./_minted-teamnote/B25F235501223A81A7E410B077F5902EF085CD0F6A309A92478485DDEE1A583E.pygtex
+ (./_minted-teamnote/perldoc.pygstyle) (./_minted-teamnote/7944874919FDF44D858E3FA5EBE0703CF085CD0F6A309A92478485DDEE1A583E.pygtex
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <8> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 2.
 )
 \openout3 = `teamnote.pyg'.
 
- (./_minted-teamnote/D0495CB6B5CC4BC749C7E4635F722119F085CD0F6A309A92478485DDEE1A583E.pygtex [2])
+ (./_minted-teamnote/E4843154750B4A21DBFC25C2AFC53880F085CD0F6A309A92478485DDEE1A583E.pygtex)
 \openout3 = `teamnote.pyg'.
 
- (./_minted-teamnote/96E220B44F3B9358569AC0506010101BF085CD0F6A309A92478485DDEE1A583E.pygtex)
+ (./_minted-teamnote/B25F235501223A81A7E410B077F5902EF085CD0F6A309A92478485DDEE1A583E.pygtex [2])
 \openout3 = `teamnote.pyg'.
 
- (./_minted-teamnote/2DDA12BC28D566E292A9DD825AAB4587F085CD0F6A309A92478485DDEE1A583E.pygtex [3])
+ (./_minted-teamnote/D0495CB6B5CC4BC749C7E4635F722119F085CD0F6A309A92478485DDEE1A583E.pygtex)
 \openout3 = `teamnote.pyg'.
 
- (./_minted-teamnote/C04FC2393FAE8BBFCF206515BBDB43B8F085CD0F6A309A92478485DDEE1A583E.pygtex)
+ (./_minted-teamnote/96E220B44F3B9358569AC0506010101BF085CD0F6A309A92478485DDEE1A583E.pygtex [3])
 \openout3 = `teamnote.pyg'.
 
- (./_minted-teamnote/92E87775F64EBCA47D093E725BBD2B0AF085CD0F6A309A92478485DDEE1A583E.pygtex [4])
+ (./_minted-teamnote/2DDA12BC28D566E292A9DD825AAB4587F085CD0F6A309A92478485DDEE1A583E.pygtex)
+\openout3 = `teamnote.pyg'.
+
+ (./_minted-teamnote/C04FC2393FAE8BBFCF206515BBDB43B8F085CD0F6A309A92478485DDEE1A583E.pygtex [4])
+\openout3 = `teamnote.pyg'.
+
+ (./_minted-teamnote/92E87775F64EBCA47D093E725BBD2B0AF085CD0F6A309A92478485DDEE1A583E.pygtex)
 \openout3 = `teamnote.pyg'.
 
  (./_minted-teamnote/1A1C86868E438072B8AEFC0EFFD4E688F085CD0F6A309A92478485DDEE1A583E.pygtex)
 \openout3 = `teamnote.pyg'.
 
- (./_minted-teamnote/FF19E60E76EEA6659B76327CB1ED06C7F085CD0F6A309A92478485DDEE1A583E.pygtex)
+ (./_minted-teamnote/FF19E60E76EEA6659B76327CB1ED06C7F085CD0F6A309A92478485DDEE1A583E.pygtex [5])
 \openout3 = `teamnote.pyg'.
 
- (./_minted-teamnote/EABDE0991FDDAA87B9EA97889AAF36FEF085CD0F6A309A92478485DDEE1A583E.pygtex [5]
+ (./_minted-teamnote/EABDE0991FDDAA87B9EA97889AAF36FEF085CD0F6A309A92478485DDEE1A583E.pygtex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-)
+ [6])
 \openout3 = `teamnote.pyg'.
 
- (./_minted-teamnote/96470CE7B5AA1ECF7707DD177A9BA76EF085CD0F6A309A92478485DDEE1A583E.pygtex [6])
+ (./_minted-teamnote/96470CE7B5AA1ECF7707DD177A9BA76EF085CD0F6A309A92478485DDEE1A583E.pygtex)
 \openout3 = `teamnote.pyg'.
 
- (./_minted-teamnote/46C9FF821DCA86DA3831B15B0296DD12F085CD0F6A309A92478485DDEE1A583E.pygtex)
+ (./_minted-teamnote/46C9FF821DCA86DA3831B15B0296DD12F085CD0F6A309A92478485DDEE1A583E.pygtex [7])
 \openout3 = `teamnote.pyg'.
 
- (./_minted-teamnote/80A10547B06EA571CFD802AE1A9FC0BEF085CD0F6A309A92478485DDEE1A583E.pygtex [7])
+ (./_minted-teamnote/80A10547B06EA571CFD802AE1A9FC0BEF085CD0F6A309A92478485DDEE1A583E.pygtex)
 \openout3 = `teamnote.pyg'.
 
  (./_minted-teamnote/294B58A341A519882E464795B12B3510F085CD0F6A309A92478485DDEE1A583E.pygtex)
 \openout3 = `teamnote.pyg'.
 
- (./_minted-teamnote/35F83F8621D7103C34F39DA897D49164F085CD0F6A309A92478485DDEE1A583E.pygtex)
+ (./_minted-teamnote/35F83F8621D7103C34F39DA897D49164F085CD0F6A309A92478485DDEE1A583E.pygtex [8])
 \openout3 = `teamnote.pyg'.
 
- (./_minted-teamnote/FD5E92B366E93BB714E063D210B2FD8DF085CD0F6A309A92478485DDEE1A583E.pygtex [8])
+ (./_minted-teamnote/FD5E92B366E93BB714E063D210B2FD8DF085CD0F6A309A92478485DDEE1A583E.pygtex)
+\openout3 = `teamnote.pyg'.
+
+ (./_minted-teamnote/AE453FFDCA9C33E0BDD626844BAF47B7F085CD0F6A309A92478485DDEE1A583E.pygtex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+ [9])
 \openout3 = `teamnote.pyg'.
 
- (./_minted-teamnote/AE453FFDCA9C33E0BDD626844BAF47B7F085CD0F6A309A92478485DDEE1A583E.pygtex [9])
+ (./_minted-teamnote/F5B7A3FD54F6E040CB51A82139F22C38F085CD0F6A309A92478485DDEE1A583E.pygtex)
 \openout3 = `teamnote.pyg'.
 
- (./_minted-teamnote/32EA0DA0C25765F469CEB377AEF4EBC8F085CD0F6A309A92478485DDEE1A583E.pygtex)
+ (./_minted-teamnote/F5B7A3FD54F6E040CB51A82139F22C38F085CD0F6A309A92478485DDEE1A583E.pygtex [10])
 \openout3 = `teamnote.pyg'.
 
- (./_minted-teamnote/FFC36DD0A3E6352851EA7E2D105CF491F085CD0F6A309A92478485DDEE1A583E.pygtex [10])
+ (./_minted-teamnote/19E071D6F2B8F7558C6A063DAFE5B2C0F085CD0F6A309A92478485DDEE1A583E.pygtex)
 \openout3 = `teamnote.pyg'.
 
- (./_minted-teamnote/9C009C7631329B6CD1D7CF903BB498EEF085CD0F6A309A92478485DDEE1A583E.pygtex)
+ (./_minted-teamnote/E30425DE5B50C5F24D7CA65DE8B51CCEF085CD0F6A309A92478485DDEE1A583E.pygtex [11])
 \openout3 = `teamnote.pyg'.
 
- (./_minted-teamnote/3FCD4E3B8EA1DBD815D6C5EC223545F2F085CD0F6A309A92478485DDEE1A583E.pygtex [11])
-\openout3 = `teamnote.pyg'.
-
- (./_minted-teamnote/7881F082F157304617A644A1EF8D051AF085CD0F6A309A92478485DDEE1A583E.pygtex)
-\openout3 = `teamnote.pyg'.
-
- (./_minted-teamnote/097F68DFB518B41B8680BB288EC1C342F085CD0F6A309A92478485DDEE1A583E.pygtex)
-\openout3 = `teamnote.pyg'.
-
- (./_minted-teamnote/15FE8120A96E2DA5B9081DC893EA64AEF085CD0F6A309A92478485DDEE1A583E.pygtex
+ (./_minted-teamnote/32EA0DA0C25765F469CEB377AEF4EBC8F085CD0F6A309A92478485DDEE1A583E.pygtex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [12])
 \openout3 = `teamnote.pyg'.
 
- (./_minted-teamnote/8EDE316397C66ED3633F1C9C480E599AF085CD0F6A309A92478485DDEE1A583E.pygtex [13])
+ (./_minted-teamnote/FFC36DD0A3E6352851EA7E2D105CF491F085CD0F6A309A92478485DDEE1A583E.pygtex)
+\openout3 = `teamnote.pyg'.
+
+ (./_minted-teamnote/9C009C7631329B6CD1D7CF903BB498EEF085CD0F6A309A92478485DDEE1A583E.pygtex)
+\openout3 = `teamnote.pyg'.
+
+ (./_minted-teamnote/3FCD4E3B8EA1DBD815D6C5EC223545F2F085CD0F6A309A92478485DDEE1A583E.pygtex [13])
+\openout3 = `teamnote.pyg'.
+
+ (./_minted-teamnote/7881F082F157304617A644A1EF8D051AF085CD0F6A309A92478485DDEE1A583E.pygtex)
+\openout3 = `teamnote.pyg'.
+
+ (./_minted-teamnote/097F68DFB518B41B8680BB288EC1C342F085CD0F6A309A92478485DDEE1A583E.pygtex [14])
+\openout3 = `teamnote.pyg'.
+
+ (./_minted-teamnote/15FE8120A96E2DA5B9081DC893EA64AEF085CD0F6A309A92478485DDEE1A583E.pygtex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [15])
+\openout3 = `teamnote.pyg'.
+
+ (./_minted-teamnote/8EDE316397C66ED3633F1C9C480E599AF085CD0F6A309A92478485DDEE1A583E.pygtex)
 \openout3 = `teamnote.pyg'.
 
  (./_minted-teamnote/70FA1D16E69EDD3F0CB2B7063FDC2292F085CD0F6A309A92478485DDEE1A583E.pygtex)
 \openout3 = `teamnote.pyg'.
 
- (./_minted-teamnote/2E1C91F9ADE2A5F12E6008EB3CA845F8F085CD0F6A309A92478485DDEE1A583E.pygtex [14]
+ (./_minted-teamnote/2E1C91F9ADE2A5F12E6008EB3CA845F8F085CD0F6A309A92478485DDEE1A583E.pygtex [16]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 )
 \openout3 = `teamnote.pyg'.
 
- (./_minted-teamnote/B0B47FCCD685D7BBF9CFC61448C62448F085CD0F6A309A92478485DDEE1A583E.pygtex [15])
+ (./_minted-teamnote/B0B47FCCD685D7BBF9CFC61448C62448F085CD0F6A309A92478485DDEE1A583E.pygtex [17])
 \openout3 = `teamnote.pyg'.
 
  (./_minted-teamnote/211D164ECB410BE423B6D5EC6D8EC87AF085CD0F6A309A92478485DDEE1A583E.pygtex
@@ -678,56 +700,53 @@ File: lucnanumgt.fd 2013/02/12 v0.1 Nanum Gothic font definitions
 ))
 \openout3 = `teamnote.pyg'.
 
- (./_minted-teamnote/59F91A002F291CD8B8C2904C4BF842DFF085CD0F6A309A92478485DDEE1A583E.pygtex)
-\openout3 = `teamnote.pyg'.
-
- (./_minted-teamnote/C50905D95A6EC3FCE35401A212498D8DF085CD0F6A309A92478485DDEE1A583E.pygtex [16])
+ (./_minted-teamnote/C50905D95A6EC3FCE35401A212498D8DF085CD0F6A309A92478485DDEE1A583E.pygtex [18])
 \openout3 = `teamnote.pyg'.
 
  (./_minted-teamnote/5CDB47F76B03454FE64AC925A60B5B3AF085CD0F6A309A92478485DDEE1A583E.pygtex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [17])
+ [19])
 \openout3 = `teamnote.pyg'.
 
  (./_minted-teamnote/843DF1478FAF97EC03D057C2C98751B6F085CD0F6A309A92478485DDEE1A583E.pygtex)
 \openout3 = `teamnote.pyg'.
 
- (./_minted-teamnote/C54D4E8CE83954911A33C0074DC37B75F085CD0F6A309A92478485DDEE1A583E.pygtex) [18]
-Underfull \hbox (badness 10000) in paragraph at lines 2035--2040
+ (./_minted-teamnote/C54D4E8CE83954911A33C0074DC37B75F085CD0F6A309A92478485DDEE1A583E.pygtex [20])
+Underfull \hbox (badness 10000) in paragraph at lines 2273--2278
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2041--2042
+Underfull \hbox (badness 10000) in paragraph at lines 2279--2280
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2043--2044
+Underfull \hbox (badness 10000) in paragraph at lines 2281--2282
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2046--2048
+Underfull \hbox (badness 10000) in paragraph at lines 2284--2286
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2049--2051
+Underfull \hbox (badness 10000) in paragraph at lines 2287--2289
 
  []
 
 \openout3 = `teamnote.pyg'.
 
 (./_minted-teamnote/2B514214C1B2BF6ED75FE6BF2A13CD62F085CD0F6A309A92478485DDEE1A583E.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 2070--2077
+Underfull \hbox (badness 10000) in paragraph at lines 2308--2315
 
  []
 
 \openout3 = `teamnote.pyg'.
 
-(./_minted-teamnote/A9A2960262B448DB66B4D75C77160E73F085CD0F6A309A92478485DDEE1A583E.pygtex [19])
+(./_minted-teamnote/A9A2960262B448DB66B4D75C77160E73F085CD0F6A309A92478485DDEE1A583E.pygtex [21])
 \openout3 = `teamnote.pyg'.
 
  (./_minted-teamnote/94C8D3E9377FFE1E5E3CAA4396854EAAF085CD0F6A309A92478485DDEE1A583E.pygtex)
@@ -744,25 +763,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 2070--2077
 
  (./_minted-teamnote/35D1241D16CAA2459FCDD3042A83C14AF085CD0F6A309A92478485DDEE1A583E.pygtex) 
 AED: lastpage setting LastPage
-[20] (./teamnote.aux)
+[22] (./teamnote.aux)
 Package rerunfilecheck Info: File `teamnote.out' has not changed.
-(rerunfilecheck)             Checksum: E96829558202332F8AAF8A04F6AD0B66;7575.
+(rerunfilecheck)             Checksum: 08CECC85ABCFDE961A7FB19A5310401A;8152.
 runsystem(rm teamnote.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 14648 strings out of 478268
- 264476 string characters out of 5846347
- 648925 words of memory out of 5000000
- 32432 multiletter control sequences out of 15000+600000
+ 14688 strings out of 478268
+ 266898 string characters out of 5846347
+ 650513 words of memory out of 5000000
+ 32450 multiletter control sequences out of 15000+600000
  478909 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 74i,12n,77p,904b,850s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 74i,11n,77p,904b,846s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/nanumtype1/nanumgtmac.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/nanumtype1/nanumgtmb2.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/nanumtype1/nanumgtmb3.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/nanumtype1/nanumgtmc8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/nanumtype1/nanumgtmcd.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb>
-Output written on teamnote.pdf (20 pages, 390912 bytes).
+Output written on teamnote.pdf (22 pages, 398845 bytes).
 PDF statistics:
- 488 PDF objects out of 1000 (max. 8388607)
- 413 compressed objects within 5 object streams
- 68 named destinations out of 1000 (max. 500000)
- 377 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 530 PDF objects out of 1000 (max. 8388607)
+ 453 compressed objects within 5 object streams
+ 76 named destinations out of 1000 (max. 500000)
+ 425 words of extra memory for PDF output out of 10000 (max. 10000000)
 

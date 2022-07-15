@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{template}\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{T}\PYG{+w}{ }\PYG{n}{inf}\PYG{o}{\PYGZgt{}}
+\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{pq\PYGZus{}set}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{n}{priority\PYGZus{}queue}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{greater}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{+w}{ }\PYG{n}{in}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{out}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// min heap, inf = 1e18}
+\PYG{+w}{  }\PYG{c+c1}{// priority\PYGZus{}queue\PYGZlt{}T\PYGZgt{} in, out; // max heap, inf = \PYGZhy{}1e18}
+\PYG{+w}{  }\PYG{n}{pq\PYGZus{}set}\PYG{p}{()\PYGZob{}}\PYG{+w}{ }\PYG{n}{in}\PYG{p}{.}\PYG{n}{push}\PYG{p}{(}\PYG{n}{inf}\PYG{p}{);}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{insert}\PYG{p}{(}\PYG{n}{T}\PYG{+w}{ }\PYG{n}{v}\PYG{p}{)\PYGZob{}}\PYG{+w}{ }\PYG{n}{in}\PYG{p}{.}\PYG{n}{push}\PYG{p}{(}\PYG{n}{v}\PYG{p}{);}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{erase}\PYG{p}{(}\PYG{n}{T}\PYG{+w}{ }\PYG{n}{v}\PYG{p}{)\PYGZob{}}\PYG{+w}{ }\PYG{n}{out}\PYG{p}{.}\PYG{n}{push}\PYG{p}{(}\PYG{n}{v}\PYG{p}{);}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{n}{T}\PYG{+w}{ }\PYG{n}{top}\PYG{p}{()\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{while}\PYG{p}{(}\PYG{n}{out}\PYG{p}{.}\PYG{n}{size}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{in}\PYG{p}{.}\PYG{n}{top}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{out}\PYG{p}{.}\PYG{n}{top}\PYG{p}{())}\PYG{+w}{ }\PYG{n}{in}\PYG{p}{.}\PYG{n}{pop}\PYG{p}{(),}\PYG{+w}{ }\PYG{n}{out}\PYG{p}{.}\PYG{n}{pop}\PYG{p}{();}
+\PYG{+w}{  	}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{in}\PYG{p}{.}\PYG{n}{top}\PYG{p}{();}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n}{empty}\PYG{p}{()\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{while}\PYG{p}{(}\PYG{n}{out}\PYG{p}{.}\PYG{n}{size}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{in}\PYG{p}{.}\PYG{n}{top}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{out}\PYG{p}{.}\PYG{n}{top}\PYG{p}{())}\PYG{+w}{ }\PYG{n}{in}\PYG{p}{.}\PYG{n}{pop}\PYG{p}{(),}\PYG{+w}{ }\PYG{n}{out}\PYG{p}{.}\PYG{n}{pop}\PYG{p}{();}
+\PYG{+w}{  	}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{in}\PYG{p}{.}\PYG{n}{top}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{inf}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}
